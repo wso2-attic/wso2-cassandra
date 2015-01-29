@@ -25,7 +25,7 @@
     <artifactId>apache-cassandra-thrift</artifactId>
     <packaging>bundle</packaging>
     <name>cassandra-thrift.wso2</name>
-    <version>1.2.13.wso2v5</version>
+    <version>1.2.13.wso2v7</version>
     <description>
         This bundle represents org.apache.cassandra.
     </description>
@@ -34,7 +34,7 @@
         <dependency>
             <groupId>org.apache.cassandra</groupId>
             <artifactId>apache-cassandra-thrift</artifactId>
-            <version>1.2.13-wso2v5</version>
+            <version>1.2.13-wso2v7</version>
             <optional>true</optional>
         </dependency>
     </dependencies>
@@ -72,7 +72,7 @@
         <guava.osgi.version.range>[13.0.1,13.0.1]</guava.osgi.version.range>
         <thrift.osgi.version.range>[0.7.wso2v1,0.8.wso2v1)</thrift.osgi.version.range>
         <antlr.osgi.version>3.2.0.wso2v1</antlr.osgi.version>
-	<cassandra.osgi.version>1.2.13.wso2v4</cassandra.osgi.version>
+	<cassandra.osgi.version>1.2.13.wso2v7</cassandra.osgi.version>
 	<netty.version>3.6.6.Final</netty.version>
     </properties>
 </project>
