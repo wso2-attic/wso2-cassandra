@@ -24,7 +24,7 @@
 
     <groupId>org.apache.cassandra</groupId>
     <artifactId>apache-cassandra</artifactId>
-    <version>1.2.13-wso2v5</version>
+    <version>1.2.13-wso2v7</version>
     <packaging>pom</packaging>
     <name>Apache Cassandra</name>
 
@@ -170,7 +170,7 @@
     </build>
     <properties>
         <cassandra.build.version>1.2.13</cassandra.build.version>
-        <cassandra.version>${cassandra.build.version}-wso2v5</cassandra.version>
+        <cassandra.version>${cassandra.build.version}-wso2v7</cassandra.version>
     </properties>
   <distributionManagement>
         <repository>
