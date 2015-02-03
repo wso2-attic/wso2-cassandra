@@ -1,5 +1,5 @@
 <!--
- ~ Copyright (c) 2015, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~ Copyright (c) 2005-2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  ~
  ~ WSO2 Inc. licenses this file to you under the Apache License,
  ~ Version 2.0 (the "License"); you may not use this file except
@@ -19,6 +19,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.cassandra.wso2</groupId>
     <artifactId>apache-cassandra</artifactId>
@@ -33,7 +34,7 @@
         <dependency>
             <groupId>org.apache.cassandra</groupId>
             <artifactId>apache-cassandra</artifactId>
-            <version>${cassandra.osgi.version}</version>
+            <version>1.2.13-wso2v7</version>
             <optional>true</optional>
         </dependency>
     </dependencies>
@@ -47,18 +48,19 @@
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
-                        <Private-Package>org.apache.cassandra.cql.jdbc.*</Private-Package>
+			<Private-Package>org.apache.cassandra.cql.jdbc.*</Private-Package>
                         <Export-Package>
-                            !org.apache.cassandra.cql.jdbc.*,
-                            org.apache.cassandra.*;version="${cassandra.osgi.version}";-split-package:=merge-first
+			    !org.apache.cassandra.cql.jdbc.*,
+                            org.apache.cassandra.*;-split-package:=merge-first
                         </Export-Package>
                         <Import-Package>
                             com.google.common.base.*; version="${guava.osgi.version.range}",
                             com.google.common.collect.*; version="${guava.osgi.version.range}",
-                            org.antlr.*;version="${antlr.osgi.version}",
-                            org.apache.thrift.*;version="${thrift.osgi.version.range}",
-                            org.jboss.netty.logging.*;version="${netty.version}",
-                            !org.apache.cassandra.*
+			    org.antlr.*;version="${antlr.osgi.version}",
+			    org.apache.thrift.*;version="${thrift.osgi.version.range}",
+			    org.jboss.netty.logging.*;version="${netty.version}",
+                            !org.apache.cassandra.*,
+                            *;resolution:=optional
                         </Import-Package>
                         <DynamicImport-Package>*</DynamicImport-Package>
                     </instructions>
@@ -67,10 +69,10 @@
         </plugins>
     </build>
     <properties>
-        <guava.osgi.version.range>[14.0.1,14.1.10]</guava.osgi.version.range>
+        <guava.osgi.version.range>[13.0.1,13.0.1]</guava.osgi.version.range>
         <thrift.osgi.version.range>[0.7.wso2v1,0.8.wso2v1)</thrift.osgi.version.range>
-        <antlr.osgi.version>[3.2.0.wso2v1,3.3.0)</antlr.osgi.version>
-        <cassandra.osgi.version>1.2.13.wso2v7</cassandra.osgi.version>
-        <netty.version>[3.9.0.Final,3.10.0)</netty.version>
+        <antlr.osgi.version>3.2.0.wso2v1</antlr.osgi.version>
+	<cassandra.osgi.version>1.2.13.wso2v7</cassandra.osgi.version>
+	<netty.version>3.6.6.Final</netty.version>
     </properties>
 </project>
