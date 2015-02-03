@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Osmorc" name="OSGi">
+      <configuration manifestGenerationMode="OsmorcControlled" manifestLocation="" jarfileLocation="apache-cassandra-1.2.13.wso2v7.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="apache-cassandra" bundleVersion="1.2.13.wso2v7" ignoreFilePattern="" useProjectDefaultManifestFileLocation="true" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+        <additionalProperties>
+          <property key="Bundle-Description" value="This bundle represents org.apache.cassandra." />
+          <property key="Bundle-Name" value="apache-cassandra" />
+          <property key="Private-Package" value="org.apache.cassandra.cql.jdbc.*" />
+          <property key="Export-Package" value="!org.apache.cassandra.cql.jdbc.*,org.apache.cassandra.*;version=&quot;1.2.13.wso2v7&quot;;-split-package:=merge-first" />
+          <property key="Import-Package" value="com.google.common.base.*; version=&quot;[14.0.1,14.1.10]&quot;,com.google.common.collect.*; version=&quot;[14.0.1,14.1.10]&quot;,org.antlr.*;version=&quot;[3.2.0.wso2v1,3.3.0)&quot;,org.apache.thrift.*;version=&quot;[0.7.wso2v1,0.8.wso2v1)&quot;,org.jboss.netty.logging.*;version=&quot;[3.9.0.Final,3.10.0)&quot;,!org.apache.cassandra.*" />
+          <property key="DynamicImport-Package" value="*" />
+        </additionalProperties>
+        <additionalJARContents />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.apache.cassandra:apache-cassandra:1.2.13.wso2v7" level="project" />
+  </component>
+</module>

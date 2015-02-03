@@ -35,13 +35,13 @@
     </modules>
 
     <build>
-         <extensions>
-             <extension>
-                 <groupId>org.apache.maven.wagon</groupId>
-                 <artifactId>wagon-ssh</artifactId>
-                 <version>2.1</version>
-             </extension>
-         </extensions>        
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh</artifactId>
+                <version>2.1</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.jvnet.maven.incrementalbuild</groupId>
@@ -160,8 +160,8 @@
                         <fileset>
                             <directory>${basedir}/build</directory>
                         </fileset>
-			<fileset>
-			    <directory>${basedir}/src/gen-java</directory>
+                        <fileset>
+                            <directory>${basedir}/src/gen-java</directory>
                         </fileset>
                     </filesets>
                 </configuration>
@@ -172,20 +172,6 @@
         <cassandra.build.version>1.2.13</cassandra.build.version>
         <cassandra.version>${cassandra.build.version}-wso2v7</cassandra.version>
     </properties>
-  <distributionManagement>
-        <repository>
-            <id>wso2-maven2-repository</id>
-            <name>WSO2 Maven2 Repository</name>
-            <url>scp://dist.wso2.org/home/httpd/dist.wso2.org/maven2/</url>
-        </repository>
-<!--
-        <snapshotRepository>
-            <id>wso2-maven2-snapshot-repository</id>
-            <name>WSO2 Maven2 Snapshot Repository</name>
-            <url>scp://dist.wso2.org/home/httpd/dist.wso2.org/snapshots/maven2/</url>
-        </snapshotRepository>
--->
-   </distributionManagement>
     <pluginRepositories>
         <pluginRepository>
             <id>repository.dev.java.net-maven2</id>
