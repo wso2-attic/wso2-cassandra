@@ -20,11 +20,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.wso2</groupId>
+        <artifactId>wso2</artifactId>
+        <version>1</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.cassandra</groupId>
     <artifactId>apache-cassandra</artifactId>
-    <version>1.2.13-wso2v7</version>
+    <version>1.2.13-wso2v7-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Apache Cassandra</name>
 
@@ -33,6 +39,13 @@
         <module>orbit/apache-cassandra-thrift</module>
         <module>orbit/apache-cassandra-clientutil</module>
     </modules>
+
+    <scm>
+        <url>https://github.com/wso2/wso2-cassandra.git</url>
+        <developerConnection>scm:git:https://github.com/wso2/wso2-cassandra.git</developerConnection>
+        <connection>scm:git:https://github.com/wso2/wso2-cassandra.git</connection>
+        <tag>HEAD</tag>
+    </scm>
 
     <build>
         <extensions>
@@ -166,11 +179,47 @@
                     </filesets>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <preparationGoals>clean install</preparationGoals>
+                    <autoVersionSubmodules>false</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.cassandra</groupId>
+                <artifactId>apache-cassandra</artifactId>
+                <version>${cassandra.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cassandra</groupId>
+                <artifactId>apache-cassandra-clientutil</artifactId>
+                <version>${cassandra.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cassandra</groupId>
+                <artifactId>apache-cassandra-thrift</artifactId>
+                <version>${cassandra.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <properties>
         <cassandra.build.version>1.2.13</cassandra.build.version>
-        <cassandra.version>${cassandra.build.version}-wso2v7</cassandra.version>
+        <cassandra.version>${cassandra.build.version}-wso2v7-SNAPSHOT</cassandra.version>
+        <guava.impt.pkg.version>[14.0.1,14.1.10]</guava.impt.pkg.version>
+        <thrift.impt.pkg.version>[0.7.wso2v1,0.8.wso2v1)</thrift.impt.pkg.version>
+        <antlr.impt.pkg.version>[3.2.0.wso2v1,3.3.0)</antlr.impt.pkg.version>
+        <netty.impt.pkg.version>[3.9.0.Final,3.10.0)</netty.impt.pkg.version>
+        <project.scm.id>my-scm-server</project.scm.id>
     </properties>
     <pluginRepositories>
         <pluginRepository>
