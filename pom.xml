@@ -71,7 +71,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.7</version>
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -111,7 +110,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
-                <version>2.2</version>
                 <executions>
                     <execution>
                         <id>install-cassandra jar</id>
@@ -166,7 +164,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>2.4.1</version>
                 <configuration>
                     <followSymLinks>false</followSymLinks>
                     <filesets>
@@ -215,7 +212,7 @@
     <properties>
         <cassandra.build.version>1.2.13</cassandra.build.version>
         <cassandra.version>${cassandra.build.version}-wso2v7-SNAPSHOT</cassandra.version>
-        <guava.impt.pkg.version>[14.0.1,14.1.10]</guava.impt.pkg.version>
+        <guava.impt.pkg.version>[14.0.1,14.2.0)</guava.impt.pkg.version>
         <thrift.impt.pkg.version>[0.7.wso2v1,0.8.wso2v1)</thrift.impt.pkg.version>
         <antlr.impt.pkg.version>[3.2.0.wso2v1,3.3.0)</antlr.impt.pkg.version>
         <netty.impt.pkg.version>[3.9.0.Final,3.10.0)</netty.impt.pkg.version>

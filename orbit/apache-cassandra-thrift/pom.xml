@@ -67,6 +67,62 @@
                     </instructions>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase/>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>install-cassandra jar</id>
+                        <phase/>
+                    </execution>
+                    <execution>
+                        <id>install-cassandra-clientutil jar</id>
+                        <phase/>
+                    </execution>
+                    <execution>
+                        <id>install-cassandra-thrift jar</id>
+                        <phase/>
+                    </execution>
+                    <execution>
+                        <id>install-cassandra-thrift wso2 jar</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <groupId>org.apache.cassandra.wso2</groupId>
+                            <artifactId>apache-cassandra-thrift</artifactId>
+                            <version>${cassandra.version}</version>
+                            <packaging>jar</packaging>
+                            <file>${basedir}/target/apache-cassandra-thrift-${cassandra.version}.jar</file>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <followSymLinks>false</followSymLinks>
+                    <filesets>
+                        <fileset>
+                            <directory>${basedir}/target</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
