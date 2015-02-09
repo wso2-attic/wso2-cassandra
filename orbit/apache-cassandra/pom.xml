@@ -74,7 +74,7 @@
                 <executions>
                     <execution>
                         <id>compile</id>
-                        <phase/>
+                        <phase>none</phase>
                     </execution>
                 </executions>
             </plugin>
@@ -84,15 +84,15 @@
                 <executions>
                     <execution>
                         <id>install-cassandra jar</id>
-                        <phase/>
+                        <phase>none</phase>
                     </execution>
                     <execution>
                         <id>install-cassandra-clientutil jar</id>
-                        <phase/>
+                        <phase>none</phase>
                     </execution>
                     <execution>
                         <id>install-cassandra-thrift jar</id>
-                        <phase/>
+                        <phase>none</phase>
                     </execution>
                     <execution>
                         <id>install-cassandra wso2 jar</id>
