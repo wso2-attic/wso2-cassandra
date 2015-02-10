@@ -27,6 +27,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.cassandra.wso2</groupId>
     <artifactId>apache-cassandra</artifactId>
+    <version>1.2.13.wso2v8-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>cassandra.wso2</name>
     <description>
@@ -37,6 +38,7 @@
         <dependency>
             <groupId>org.apache.cassandra</groupId>
             <artifactId>apache-cassandra</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
     <build>
@@ -52,7 +54,7 @@
                         <Private-Package>org.apache.cassandra.cql.jdbc.*</Private-Package>
                         <Export-Package>
                             !org.apache.cassandra.cql.jdbc.*,
-                            org.apache.cassandra.*;version="${cassandra.version}";-split-package:=merge-first
+                            org.apache.cassandra.*;version="${cassandra.osgi.version}";-split-package:=merge-first
                         </Export-Package>
                         <Import-Package>
                             com.google.common.base.*; version="${guava.impt.pkg.version}",
@@ -101,9 +103,9 @@
                         <configuration>
                             <groupId>org.apache.cassandra.wso2</groupId>
                             <artifactId>apache-cassandra</artifactId>
-                            <version>${cassandra.version}</version>
+                            <version>${cassandra.osgi.version}</version>
                             <packaging>jar</packaging>
-                            <file>${basedir}/target/apache-cassandra-${cassandra.version}.jar
+                            <file>${basedir}/target/apache-cassandra-${cassandra.osgi.version}.jar
                             </file>
                             <generatePom>true</generatePom>
                         </configuration>
