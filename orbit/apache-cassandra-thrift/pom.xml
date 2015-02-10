@@ -1,5 +1,5 @@
 <!--
- ~ Copyright (c) 2005-2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~ Copyright (c) 2015, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  ~
  ~ WSO2 Inc. licenses this file to you under the Apache License,
  ~ Version 2.0 (the "License"); you may not use this file except
@@ -19,23 +19,25 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
+    <parent>
+        <groupId>org.apache.cassandra</groupId>
+        <artifactId>apache-cassandra</artifactId>
+        <version>1.2.13-wso2v7-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.cassandra.wso2</groupId>
     <artifactId>apache-cassandra-thrift</artifactId>
     <packaging>bundle</packaging>
     <name>cassandra-thrift.wso2</name>
-    <version>1.2.13.wso2v7</version>
-    <description>
-        This bundle represents org.apache.cassandra.
-    </description>
+    <description>This bundle represents org.apache.cassandra.</description>
     <url>http://wso2.org</url>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.cassandra</groupId>
             <artifactId>apache-cassandra-thrift</artifactId>
-            <version>1.2.13-wso2v7</version>
-            <optional>true</optional>
         </dependency>
     </dependencies>
     <build>
@@ -48,31 +50,79 @@
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
-			<Private-Package>org.apache.cassandra.cql.jdbc.*</Private-Package>
+                        <Private-Package>org.apache.cassandra.cql.jdbc.*</Private-Package>
                         <Export-Package>
-			    !org.apache.cassandra.cql.jdbc.*,
-                            org.apache.cassandra.*;-split-package:=merge-first
+                            !org.apache.cassandra.cql.jdbc.*,
+                            org.apache.cassandra.*;version="${cassandra.version}";-split-package:=merge-first
                         </Export-Package>
                         <Import-Package>
-                            com.google.common.base.*; version="${guava.osgi.version.range}",
-                            com.google.common.collect.*; version="${guava.osgi.version.range}",
-			    org.antlr.*;version="${antlr.osgi.version}",
-			    org.apache.thrift.*;version="${thrift.osgi.version.range}",
-			    org.jboss.netty.logging.*;version="${netty.version}",
-                            !org.apache.cassandra.*,
-                            *;resolution:=optional
+                            com.google.common.base.*; version="${guava.impt.pkg.version}",
+                            com.google.common.collect.*; version="${guava.impt.pkg.version}",
+                            org.antlr.*;version="${antlr.impt.pkg.version}",
+                            org.apache.thrift.*;version="${thrift.impt.pkg.version}",
+                            org.jboss.netty.logging.*;version="${netty.impt.pkg.version}",
+                            !org.apache.cassandra.*
                         </Import-Package>
                         <DynamicImport-Package>*</DynamicImport-Package>
                     </instructions>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>install-cassandra jar</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>install-cassandra-clientutil jar</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>install-cassandra-thrift jar</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>install-cassandra-thrift wso2 jar</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <groupId>org.apache.cassandra.wso2</groupId>
+                            <artifactId>apache-cassandra-thrift</artifactId>
+                            <version>${cassandra.version}</version>
+                            <packaging>jar</packaging>
+                            <file>${basedir}/target/apache-cassandra-thrift-${cassandra.version}.jar</file>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <followSymLinks>false</followSymLinks>
+                    <filesets>
+                        <fileset>
+                            <directory>${basedir}/target</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-    <properties>
-        <guava.osgi.version.range>[13.0.1,13.0.1]</guava.osgi.version.range>
-        <thrift.osgi.version.range>[0.7.wso2v1,0.8.wso2v1)</thrift.osgi.version.range>
-        <antlr.osgi.version>3.2.0.wso2v1</antlr.osgi.version>
-	<cassandra.osgi.version>1.2.13.wso2v7</cassandra.osgi.version>
-	<netty.version>3.6.6.Final</netty.version>
-    </properties>
 </project>
