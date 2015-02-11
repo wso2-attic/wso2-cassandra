@@ -15,7 +15,8 @@
  ~ specific language governing permissions and limitations
  ~ under the License.
  -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
         <groupId>org.apache.cassandra</groupId>
@@ -40,6 +41,11 @@
             <artifactId>apache-cassandra</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>org.apache.cassandra</groupId>
+            <artifactId>apache-cassandra-thrift</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -54,7 +60,7 @@
                         <Private-Package>org.apache.cassandra.cql.jdbc.*</Private-Package>
                         <Export-Package>
                             !org.apache.cassandra.cql.jdbc.*,
-                            org.apache.cassandra.*;version="${cassandra.osgi.version}";-split-package:=merge-first
+                            org.apache.cassandra.*;version="${cassandra.version}";-split-package:=merge-first
                         </Export-Package>
                         <Import-Package>
                             com.google.common.base.*; version="${guava.impt.pkg.version}",
@@ -103,9 +109,9 @@
                         <configuration>
                             <groupId>org.apache.cassandra.wso2</groupId>
                             <artifactId>apache-cassandra</artifactId>
-                            <version>${cassandra.osgi.version}</version>
+                            <version>${cassandra.version}</version>
                             <packaging>jar</packaging>
-                            <file>${basedir}/target/apache-cassandra-${cassandra.osgi.version}.jar
+                            <file>${basedir}/target/apache-cassandra-${cassandra.version}.jar
                             </file>
                             <generatePom>true</generatePom>
                         </configuration>
