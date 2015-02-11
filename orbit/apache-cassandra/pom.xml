@@ -63,7 +63,6 @@
                             org.antlr.*;version="${antlr.impt.pkg.version}",
                             org.apache.thrift.*;version="${thrift.impt.pkg.version}",
                             org.jboss.netty.logging.*;version="${netty.impt.pkg.version}",
-                            org.apache.cassandra.thrift.*;version="${cassandra.version}",
                             !org.apache.cassandra.*
                         </Import-Package>
                         <DynamicImport-Package>*</DynamicImport-Package>
