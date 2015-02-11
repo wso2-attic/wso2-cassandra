@@ -50,10 +50,8 @@
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
-                        <Private-Package>org.apache.cassandra.cql.jdbc.*</Private-Package>
                         <Export-Package>
-                            !org.apache.cassandra.cql.jdbc.*,
-                            org.apache.cassandra.*;version="${cassandra.version}";-split-package:=merge-first
+                            org.apache.cassandra.thrift.*;version="${cassandra.version}";-split-package:=merge-first
                         </Export-Package>
                         <Import-Package>
                             com.google.common.base.*; version="${guava.impt.pkg.version}",
