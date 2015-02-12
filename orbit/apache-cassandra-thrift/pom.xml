@@ -20,14 +20,14 @@
     <parent>
         <groupId>org.apache.cassandra</groupId>
         <artifactId>apache-cassandra</artifactId>
-        <version>1.2.13.wso2v8-SNAPSHOT</version>
+        <version>1.2.13.wso2v9-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.cassandra.wso2</groupId>
     <artifactId>apache-cassandra-thrift</artifactId>
-    <version>1.2.13.wso2v8-SNAPSHOT</version>
+    <version>1.2.13.wso2v9-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>cassandra-thrift.wso2</name>
     <description>This bundle represents org.apache.cassandra.</description>
