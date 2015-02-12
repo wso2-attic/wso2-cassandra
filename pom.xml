@@ -28,7 +28,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.cassandra</groupId>
     <artifactId>apache-cassandra</artifactId>
-    <version>1.2.13-wso2v8-SNAPSHOT</version>
+    <version>1.2.13.wso2v8-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Apache Cassandra</name>
 
