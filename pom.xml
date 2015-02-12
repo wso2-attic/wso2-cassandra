@@ -28,7 +28,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.cassandra</groupId>
     <artifactId>apache-cassandra</artifactId>
-    <version>1.2.13.wso2v8</version>
+    <version>1.2.13.wso2v9-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Apache Cassandra</name>
 
@@ -42,7 +42,7 @@
         <url>https://github.com/wso2/wso2-cassandra.git</url>
         <developerConnection>scm:git:https://github.com/wso2/wso2-cassandra.git</developerConnection>
         <connection>scm:git:https://github.com/wso2/wso2-cassandra.git</connection>
-        <tag>1.2.13-wso2v8</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <build>
@@ -198,18 +198,18 @@
             <dependency>
                 <groupId>org.apache.cassandra</groupId>
                 <artifactId>apache-cassandra-clientutil</artifactId>
-                <version>1.2.13.wso2v8</version>
+                <version>1.2.13.wso2v9-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.cassandra</groupId>
                 <artifactId>apache-cassandra-thrift</artifactId>
-                <version>1.2.13.wso2v8</version>
+                <version>1.2.13.wso2v9-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
     <properties>
         <cassandra.build.version>1.2.13</cassandra.build.version>
-        <cassandra.version>1.2.13.wso2v8</cassandra.version>
+        <cassandra.version>1.2.13.wso2v9-SNAPSHOT</cassandra.version>
         <guava.impt.pkg.version>[14.0.1,14.2.0)</guava.impt.pkg.version>
         <thrift.impt.pkg.version>[0.7.wso2v1,0.8.wso2v1)</thrift.impt.pkg.version>
         <antlr.impt.pkg.version>[3.2.0.wso2v1,3.3.0)</antlr.impt.pkg.version>
